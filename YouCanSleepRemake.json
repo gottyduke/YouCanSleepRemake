@@ -1,0 +1,10 @@
+{
+  "allowSleepAndWaitInAir": true,
+  "allowSleepAndWaitTrespassing": true,
+  "allowSleepAndWaitAskedToLeave": true,
+  "allowSleepAndWaitGuardsPursuing": true,
+  "allowSleepAndWaitEnemiesNearby": true,
+  "allowSleepAndWaitTakingHealthDamage": true,
+  "allowSleepAndWaitOwned": true,
+  "allowSleepAndWaitInUse": true
+}
