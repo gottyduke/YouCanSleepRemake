@@ -1,0 +1,11 @@
+[SleepWait]
+EnableSleepAndWaitInAir = true
+EnableSleepAndWaitTrespassing = true
+EnableSleepAndWaitAskedToLeave = true
+EnableSleepAndWaitGuardsPursuing = true
+EnableSleepAndWaitEnemiesNearby = true
+EnableSleepAndWaitTakingHealthDamage = true
+EnableSleepAndWaitOwned = true
+EnableSleepAndWaitInUse = true
+
+[Craft]

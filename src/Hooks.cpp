@@ -1,14 +1,13 @@
 #include "Hooks.h"
-#include "Settings.h"
-
-#include "SKSE/SafeWrite.h"
+#include "Config.h"
 
 
-namespace
+namespace Hooks
 {
-	constexpr auto FUNC_ID = 39371;
+	constexpr auto SW_FUNC_ID = 39371;
 	constexpr std::uint8_t JMP = 0xEB;
-	constexpr std::uintptr_t AddressTable[8] = {
+	constexpr std::uint8_t NOP = 0x90;
+	constexpr std::uintptr_t OffsetTbl[8] = {
 		0x2E, // You cannot sleep in the air.
 		0x89, // You cannot sleep while trespassing.
 		0xB1, // You cannot sleep while being asked to leave.
@@ -19,31 +18,25 @@ namespace
 		0x3BC // You cannot sleep in an owned bed.
 	};
 	constexpr std::uintptr_t InAirLoopOffset = 0xD4;
-	constexpr std::uint8_t InAirHookNop[6] = {0x90, 0x90, 0x90, 0x90, 0x90, 0x90};
-}
+	constexpr std::uint8_t InAirHookNop[6]{ NOP, NOP, NOP, NOP, NOP, NOP };
 
 
-namespace Hooks
-{
-
-	bool TryInstallHooks()
+	void Install()
 	{
-		auto success = true;
+		const auto funcAddr = REL::ID(SW_FUNC_ID).address();
+		const auto anniFuncAddr = funcAddr + 0x27E70;
 
-		const auto funcAddr = REL::ID(FUNC_ID).GetAddress();
-		
 		for (auto i = 0; i < 8; ++i) {
-			if (**Settings::allows[i]) {
-				success &=
-					SKSE::SafeWrite8(funcAddr + AddressTable[i], JMP);
+			if (*Config::EnableSleepWait[i]) {
+				WRITE(funcAddr + OffsetTbl[i], JMP);
 			}
 		}
 
 		// loop check for in air position
-		if (*Settings::allowSleepAndWaitInAir) {
-			SKSE::SafeWriteBuf(funcAddr + InAirLoopOffset, InAirHookNop, 6);
+		if (*Config::EnableSleepWait[0]) {
+			WRITE_BUF(funcAddr + InAirLoopOffset, InAirHookNop, 6);
 		}
-		
-		return success;
+
+		INFO("Hooks installed"sv);
 	}
 }
