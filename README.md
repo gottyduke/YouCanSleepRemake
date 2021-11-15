@@ -11,11 +11,11 @@
 ## Settings
 Setting  |Description
 --- | ---
-`allowSleepAndWaitInAir` | true
-`allowSleepAndWaitTrespassing` | true
-`allowSleepAndWaitAskedToLeave` | true
-`allowSleepAndWaitGuardsPursuing` | true
-`allowSleepAndWaitEnemiesNearby` | true
-`allowSleepAndWaitTakingHealthDamage` | true
-`allowSleepAndWaitOwned` | true
-`allowSleepAndWaitInUse` | true
+`EnableSleepAndWaitInAir` | true
+`EnableSleepAndWaitTrespassing` | true
+`EnableSleepAndWaitAskedToLeave` | true
+`EnableSleepAndWaitGuardsPursuing` | true
+`EnableSleepAndWaitEnemiesNearby` | true
+`EnableSleepAndWaitTakingHealthDamage` | true
+`EnableSleepAndWaitOwned` | true
+`EnableSleepAndWaitInUse` | true
