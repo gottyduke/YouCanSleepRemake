@@ -4,14 +4,14 @@
 namespace Config
 {
 	Boolean EnableSleepWait[8]{
-		{"EnableSleepAndWaitInAir"},
-		{"EnableSleepAndWaitTrespassing"},
-		{"EnableSleepAndWaitAskedToLeave"},
-		{"EnableSleepAndWaitGuardsPursuing"},
-		{"EnableSleepAndWaitEnemiesNearby"},
-		{"EnableSleepAndWaitTakingHealthDamage"},
-		{"EnableSleepAndWaitOwned"},
-		{"EnableSleepAndWaitInUse"},
+		{"InAir"},
+		{"Trespassing"},
+		{"AskedToLeave"},
+		{"GuardsPursuing"},
+		{"EnemiesNearby"},
+		{"TakingHealthDamage"},
+		{"Owned"},
+		{"InUse"},
 	};
 
 
@@ -19,8 +19,8 @@ namespace Config
 	{
 		auto main = COMPILE_PROXY("YouCanSleepRemake.toml"sv);
 
-		for (auto& config : EnableSleepWait) {
-			main.Bind(config, true);
+		for (auto index = 0; index < std::extent_v<decltype(EnableSleepWait)>; ++index) {
+			main.Bind(EnableSleepWait[index], true);
 		}
 
 		main.Load();

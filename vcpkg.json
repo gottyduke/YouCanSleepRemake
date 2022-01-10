@@ -4,7 +4,11 @@
     "description":  "An SKSE plugin for skyrim special edition.",
     "license":  "MIT",
     "dependencies":  [
-                         "boost-stl-interfaces",
                          "spdlog"
-                     ]
+                     ],
+    "features":  {
+                     "mo2-install":  {
+                                         "description":  "You Can Sleep Remake"
+                                     }
+                 }
 }
