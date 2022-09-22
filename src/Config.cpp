@@ -3,15 +3,15 @@
 
 namespace Config
 {
-	Boolean EnableSleepWait[8]{
-		{"InAir"},
-		{"Trespassing"},
-		{"AskedToLeave"},
-		{"GuardsPursuing"},
-		{"EnemiesNearby"},
-		{"TakingHealthDamage"},
-		{"Owned"},
-		{"InUse"},
+	Boolean EnableSleepWait[8] = {
+		{ "InAir" },
+		{ "Trespassing" },
+		{ "AskedToLeave" },
+		{ "GuardsPursuing" },
+		{ "EnemiesNearby" },
+		{ "TakingHealthDamage" },
+		{ "Owned" },
+		{ "InUse" },
 	};
 
 
